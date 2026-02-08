@@ -1,0 +1,80 @@
+/* Reset básico para não ter espaços sobrando */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+}
+
+.fundo-bonito2 {
+    background-color: rgb(223, 211, 243);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Cambria', serif;
+}
+
+.container-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Sombra leve para dar profundidade */
+    color: #333;
+    width: 400px; /* Largura fixa para ficar elegante */
+    text-align: center;
+}
+
+.titulo-form {
+    margin-bottom: 20px;
+    color: #5a4a78;
+}
+
+/* Estilizando os campos de texto */
+.input-padrao {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.input-padrao:focus {
+    border-color: #b08ff8;
+}
+
+.btn-cadastro2 {
+    background-color: #ffffff;
+    cursor: pointer;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100%;
+    font-weight: bold;
+    font-family: 'Cambria', serif;
+    transition: 0.3s;
+}
+
+.btn-cadastro2:hover {
+    background-color: #b08ff8;
+    color: white;
+    border-color: #5a4a78;
+}
+
+.rodape-form {
+    margin-top: 20px;
+}
+
+.link-voltar {
+    text-decoration: none;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.link-voltar:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700&display=swap');
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 700;
+}
+
+/* Fundo Bonito com Imagem */
+.fundo-bonito {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2)), 
+                url('https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=1920');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+h1 { font-size: 3rem; margin-bottom: 20px; }
+
+.links-principais {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Estilo dos Links/Botões */
+a {
+    text-decoration: none;
+    padding: 15px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cadastro { 
+    background-color: #28a745; color: white; }
+
+.btn-login {
+     background-color: transparent; border: 2px solid white; color: white; }
+
+.btn-cadastro:hover {
+     background-color: #218838; }
+
+.btn-login:hover { 
+    background-color: white; color: black; }
