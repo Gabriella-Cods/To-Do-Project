@@ -78,3 +78,31 @@
 .link-voltar:hover {
     text-decoration: underline;
 }
+
+
+
+/* Container para o link de categorias dentro do card */
+.container-link-externo {
+    margin-top: 20px;
+    border-top: 1px solid #eee; /* Linha sutil para separar */
+    padding-top: 20px;
+}
+
+/* Estilo do botão vazado (Outline) */
+.btn-categoria {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent; 
+    color: #5a4a78; /* Roxo combinando com seu título */
+    text-decoration: none;
+    border: 2px solid #5a4a78;
+    border-radius: 25px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.btn-categoria:hover {
+    background-color: #5a4a78;
+    color: white;
+    transform: translateY(-2px); /* Efeito de flutuar */
+}

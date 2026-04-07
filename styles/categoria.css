@@ -1,0 +1,60 @@
+/* Reutilizando sua estrutura da AC1 */
+.fundo-bonito2 {
+    background: linear-gradient(135px, #6e8efb, #a777e3); /* Exemplo de degradê */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container-form {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.titulo-form {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.input-padrao {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho do input */
+}
+
+.btn-cadastro2 {
+    width: 100%;
+    padding: 12px;
+    background-color: #6e8efb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cadastro2:hover {
+    background-color: #5a75d4;
+}
+
+.link-voltar {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #888;
+    font-size: 14px;
+}
+
+
+

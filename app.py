@@ -19,6 +19,13 @@ def init_db():
             senha TEXT
         )
     ''')
+    # NOVA TABELA: Categorias
+    cursor.execute('''
+        CREATE TABLE IF NOT EXISTS categorias (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nome TEXT NOT NULL
+        )
+    ''')
     conn.commit()
     conn.close()
 
@@ -47,6 +54,30 @@ def cadastrar():
     conn.commit()
     conn.close()
     return jsonify({"sucesso": True})
+
+
+
+
+
+
+@app.route('/cadastrar_categoria', methods=['POST'])
+def cadastrar_categoria():
+    dados = request.json
+    nome_cat = dados.get('nome')
+    conn = sqlite3.connect('meu_banco.db')
+    cursor = conn.cursor()
+    cursor.execute('INSERT INTO categorias (nome) VALUES (?)', (nome_cat,))
+    conn.commit()
+    conn.close()
+    return jsonify({"sucesso": True})
+
+
+@app.route('/categoria.html')
+def pagina_categoria():
+    return render_template('categoria.html')
+
+
+
 
 if __name__ == '__main__':
     init_db()
