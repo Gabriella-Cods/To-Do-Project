@@ -1,65 +1,129 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- 1. LÓGICA DE CADASTRO DE USUÁRIO ---
-    const formCadastro = document.getElementById('formulario-cadastro');
+    
+    // --- FUNÇÃO PARA CARREGAR O SELECT ---
+    const carregarCategoriasNoSelect = async () => {
+        const select = document.getElementById('select-categoria');
+        if (!select) return;
 
-    if (formCadastro) {
-        formCadastro.addEventListener('submit', async (e) => {
-            e.preventDefault();
+        try {
+            const response = await fetch('/get_categorias');
+            const categorias = await response.json();
 
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
+            select.innerHTML = '<option value="">Vincular à Categoria...</option>';
+            categorias.forEach(cat => {
+                const option = document.createElement('option');
+                option.value = cat.id;
+                option.textContent = cat.nome;
+                select.appendChild(option);
+            });
+        } catch (e) {
+            console.error("Erro ao carregar categorias:", e);
+        }
+    };
+
+    // --- 1. LOGIN DE USUÁRIO ---
+    const formLogin = document.getElementById('form-login');
+    if (formLogin) {
+        formLogin.addEventListener('submit', async (e) => {
+            e.preventDefault(); 
+
+            const email = document.getElementById('login-email').value;
+            const senha = document.getElementById('login-senha').value;
 
             try {
-                const response = await fetch("/cadastrar", {
+                const response = await fetch("/login", {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome, email, senha })
+                    body: JSON.stringify({ email, senha })
                 });
 
                 const result = await response.json();
 
                 if (result.sucesso) {
-                    alert("Usuário salvo com sucesso!");
-                    // Redireciona automaticamente para a página de categorias
+                    alert("Login efetuado com sucesso!");
                     window.location.href = "/categoria.html"; 
                 } else {
-                    alert("Erro ao salvar usuário.");
+                    alert("Erro: " + result.mensagem); 
                 }
             } catch (error) {
-                console.error("Erro:", error);
-                alert("Erro ao conectar com o servidor.");
+                console.error("Erro na requisição:", error);
+                alert("Erro técnico: O servidor Python (app.py) está rodando?");
             }
         });
     }
 
-    // --- 2. LÓGICA DE CADASTRO DE CATEGORIAS ---
-    const formCat = document.getElementById('form-categoria');
+    // --- 2. CADASTRO DE USUÁRIO ---
+    const formCadastro = document.getElementById('formulario-cadastro');
+    if (formCadastro) {
+        formCadastro.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const dados = {
+                nome: document.getElementById('nome').value,
+                email: document.getElementById('email').value,
+                senha: document.getElementById('senha').value
+            };
 
+            const response = await fetch("/cadastrar", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            });
+
+            if ((await response.json()).sucesso) {
+                alert("Usuário cadastrado com sucesso!");
+                window.location.href = "/categoria.html";
+            }
+        });
+    }
+
+    // --- 3. CADASTRO DE CATEGORIAS ---
+    const formCat = document.getElementById('form-categoria');
     if (formCat) {
         formCat.addEventListener('submit', async (e) => {
             e.preventDefault();
             const nome = document.getElementById('nome-categoria').value;
 
-            try {
-                const response = await fetch("/cadastrar_categoria", {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ nome })
-                });
+            const response = await fetch("/cadastrar_categoria", {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ nome })
+            });
 
-                const result = await response.json();
-
-                if (result.sucesso) {
-                    alert("Categoria cadastrada com sucesso!");
-                    document.getElementById('nome-categoria').value = ""; // Limpa o campo
-                } else {
-                    alert("Erro ao salvar categoria.");
-                }
-            } catch (error) {
-                console.error("Erro:", error);
-                alert("Erro ao conectar com o servidor.");
+            if ((await response.json()).sucesso) {
+                alert("Categoria criada!");
+                document.getElementById('nome-categoria').value = "";
+                carregarCategoriasNoSelect(); 
             }
         });
     }
+
+    // --- 4. CADASTRO DE TAREFAS ---
+    const formTarefa = document.getElementById('form-tarefa');
+    if (formTarefa) {
+        formTarefa.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const dados = {
+                descricao: document.getElementById('desc-tarefa').value,
+                categoria_id: document.getElementById('select-categoria').value,
+                inicio: document.getElementById('data-inicio').value,
+                fim: document.getElementById('data-fim').value
+            };
+
+            const response = await fetch('/cadastrar_tarefa', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            });
+
+            if ((await response.json()).sucesso) {
+                alert("Tarefa agendada!");
+                formTarefa.reset();
+            }
+        });
+    }
+
+    // Inicializa o select ao abrir a página
+    carregarCategoriasNoSelect();
 });
+
+

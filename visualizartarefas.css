@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600&display=swap');
+
+.fundo-bonito2 {
+    background-color: rgb(223, 211, 243);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Bricolage Grotesque", sans-serif;
+    margin: 0;
+}
+
+.container-listagem {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 800px;
+}
+
+.titulo-lista {
+    color: #5a4a78;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.tabela-wrapper {
+    overflow-x: auto;
+}
+
+.tabela-tarefas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabela-tarefas th {
+    background-color: #5a4a78;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.tabela-tarefas td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    color: #444;
+}
+
+.badge-cat {
+    background-color: #d4c1f6;
+    color: #333;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85em;
+}
+
+.link-voltar {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #888;
+}

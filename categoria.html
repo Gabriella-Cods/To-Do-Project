@@ -2,19 +2,52 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Categorias - Lista Diária</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planejamento - Lista Diária</title>
     <link rel="stylesheet" href="styles/categoria.css">
+</head>
 <body class="fundo-bonito2">
+
     <div class="container-form">
         <h2 class="titulo-form">Nova Categoria</h2>
         <form id="form-categoria">
-            <input type="text" id="nome-categoria" placeholder="Ex: Estudos, Trabalho..." class="input-padrao" required>
-            <button type="submit" class="btn-categoria">Salvar Categoria</button>
+            <input type="text" id="nome-categoria" placeholder="Ex: Faculdade, Trabalho, Casa" class="input-padrao" required>
+            <button type="submit" class="btn-categoria">Criar Categoria</button>
         </form>
+    </div>
+
+    <hr>
+
+    <div class="container-form">
+        <h2 class="titulo-form">Agendar Tarefa</h2>
+        <form id="form-tarefa">
+            <label class="label-pequena">O QUE FAZER?</label>
+            <input type="text" id="desc-tarefa" placeholder="Descrição da sua tarefa..." class="input-padrao" required>
+            
+            <label class="label-pequena">QUAL CATEGORIA?</label>
+            <select id="select-categoria" class="input-padrao" required>
+                <option value="">Selecione...</option>
+            </select>
+
+            <div style="display: flex; gap: 15px;">
+                <div style="flex: 1;">
+                    <label class="label-pequena">INÍCIO</label>
+                    <input type="date" id="data-inicio" class="input-padrao">
+                </div>
+                <div style="flex: 1;">
+                    <label class="label-pequena">ENTREGA</label>
+                    <input type="date" id="data-fim" class="input-padrao">
+                </div>
+            </div>
+            
+            <button type="submit" class="btn-agendar">Finalizar Agendamento</button>
+        </form>
+        
         <div class="rodape-form">
-            <a href="telainicial.html" class="link-voltar">← Voltar</a>
+            <a href="/" class="link-voltar">← Voltar para o Início</a>
         </div>
     </div>
+
     <script src="javascript/javascript.js"></script>
 </body>
 </html>

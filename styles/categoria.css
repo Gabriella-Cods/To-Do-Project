@@ -1,60 +1,105 @@
-/* Reutilizando sua estrutura da AC1 */
+/* Fundo padronizado conforme seus prints */
 .fundo-bonito2 {
-    background: linear-gradient(135px, #6e8efb, #a777e3); /* Exemplo de degradê */
-    height: 100vh;
+    background-color: rgb(223, 211, 243);
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    padding: 40px 20px;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container-form {
     background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    width: 350px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(90, 74, 120, 0.15); /* Sombra arroxeada leve */
+    width: 100%;
+    max-width: 400px;
     text-align: center;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
 }
 
 .titulo-form {
-    color: #333;
-    margin-bottom: 20px;
+    color: #5a4a78;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-weight: 600;
 }
 
+/* Padronização de todos os Inputs, Selects e Dates */
 .input-padrao {
     width: 100%;
-    padding: 12px;
+    padding: 12px 15px;
     margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-sizing: border-box; /* Garante que o padding não aumente o tamanho do input */
+    border: 2px solid #f0edf5;
+    border-radius: 10px;
+    background-color: #fcfaff;
+    color: #444;
+    font-size: 14px;
+    box-sizing: border-box; /* Essencial para não sair da caixa */
+    transition: all 0.3s ease;
 }
 
-.btn-cadastro2 {
-    width: 100%;
-    padding: 12px;
-    background-color: #6e8efb;
+.input-padrao:focus {
+    border-color: #5a4a78;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(90, 74, 120, 0.2);
+}
+
+/* Botões Padronizados */
+.btn-categoria, .btn-agendar {
+    background-color: #5a4a78;
     color: white;
     border: none;
-    border-radius: 8px;
-    cursor: pointer;
+    border-radius: 10px;
+    padding: 14px;
+    width: 100%;
+    font-size: 16px;
     font-weight: bold;
-    transition: 0.3s;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
 }
 
-.btn-cadastro2:hover {
-    background-color: #5a75d4;
+.btn-categoria:hover, .btn-agendar:hover {
+    background-color: #483a61;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.label-pequena {
+    display: block;
+    text-align: left;
+    font-size: 12px;
+    color: #5a4a78;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-left: 5px;
+}
+
+.rodape-form {
+    margin-top: 20px;
 }
 
 .link-voltar {
-    display: block;
-    margin-top: 20px;
     text-decoration: none;
     color: #888;
     font-size: 14px;
+    transition: color 0.3s;
 }
 
+.link-voltar:hover {
+    color: #5a4a78;
+}
 
-
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 30px 0;
+    width: 400px;
+}
